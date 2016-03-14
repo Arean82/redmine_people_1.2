@@ -1,0 +1,23 @@
+<%= form_tag({:controller => :people_settings, :action => :update, :id => '1', :tab => 'general'},
+               :method => :put, :id => "people_acl_form") do %>
+  <div class="box tabular">
+  <p>
+    <label for="settings_visibility"><%= l(:label_people_show_for_registered_users) %></label>
+    <%= hidden_field_tag 'settings[visibility]', 0, :id => nil %>
+    <%= check_box_tag 'settings[visibility]', 1, Setting.plugin_redmine_people["visibility"].to_i > 0 %>
+  </p>
+
+  <p>
+    <label for="settings_edit_own_data"><%= l(:label_people_edit_own_data) %></label>
+    <%= hidden_field_tag 'settings[edit_own_data]', 0, :id => nil %>
+    <%= check_box_tag 'settings[edit_own_data]', 1, Setting.plugin_redmine_people['edit_own_data'].to_i > 0 %>
+  </p>
+
+  <p>
+    <label for="settings_hide_age"><%= l(:label_people_hide_age) %></label>
+    <%= hidden_field_tag 'settings[hide_age]', 0, :id => nil %>
+    <%= check_box_tag 'settings[hide_age]', 1, Setting.plugin_redmine_people["hide_age"].to_i > 0 %>
+  </p>
+  </div>
+  <%= submit_tag l(:button_apply) %>
+<% end %>
