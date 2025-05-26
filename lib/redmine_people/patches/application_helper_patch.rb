@@ -16,7 +16,7 @@ module RedminePeople
           alias_method :format_object_without_people, :format_object
           alias_method :format_object, :format_object_with_people
 
-          unless RedminePeople.module_exists?(:AvatarsHelper)
+          unless RedminePeople.const_defined?(:AvatarsHelper)
             include AvatarsHelperPatch::InstanceMethods
 
             alias_method :avatar_without_people, :avatar
