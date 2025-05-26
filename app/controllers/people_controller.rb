@@ -1,33 +1,23 @@
-# This file is a part of Redmine CRM (redmine_contacts) plugin,
-# customer relationship management plugin for Redmine
-#
-# Copyright (C) 2011-2016 Kirill Bezrukov
-# http://www.redminecrm.com/
-#
-# redmine_people is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# redmine_people is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with redmine_people.  If not, see <http://www.gnu.org/licenses/>.
 
 class PeopleController < ApplicationController
   unloadable
 
   Mime::Type.register "text/x-vcard", :vcf
 
-  before_filter :find_person, :only => [:show, :edit, :update, :destroy, :edit_membership, :destroy_membership, :destroy_avatar, :load_tab, :remove_subordinate]
-  before_filter :authorize_people, :except => [:avatar, :context_menu, :autocomplete_tags]
+  # before_filter :find_person, :only => [:show, :edit, :update, :destroy, :edit_membership, :destroy_membership, :destroy_avatar, :load_tab, :remove_subordinate]
+  # before_filter :authorize_people, :except => [:avatar, :context_menu, :autocomplete_tags]
 
-  before_filter :bulk_find_people, :only => [:context_menu]
-  before_filter :visible?, :only => [:show, :load_tab]
-  before_filter :load_person_attachments, :load_person_memberships, :load_person_events, :load_subordinates, :only => [:show, :load_tab]
+  # before_filter :bulk_find_people, :only => [:context_menu]
+  # before_filter :visible?, :only => [:show, :load_tab]
+  # before_filter :load_person_attachments, :load_person_memberships, :load_person_events, :load_subordinates, :only => [:show, :load_tab]
+
+  before_action :find_person, only: [:show, :edit, :update, :destroy, :edit_membership, :destroy_membership, :destroy_avatar, :load_tab, :remove_subordinate]
+  before_action :authorize_people, except: [:avatar, :context_menu, :autocomplete_tags]
+
+  before_action :bulk_find_people, only: [:context_menu]
+  before_action :visible?, only: [:show, :load_tab]
+  before_action :load_person_attachments, :load_person_memberships, :load_person_events, :load_subordinates, only: [:show, :load_tab]
+
 
   include PeopleHelper
   helper :queries
