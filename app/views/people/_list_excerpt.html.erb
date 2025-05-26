@@ -1,6 +1,6 @@
 <%= form_tag({}) do %>
 <!--<%= hidden_field_tag 'back_url', url_for(params) %> -->
-<%= hidden_field_tag 'back_url', url_for(params.permit(:controller, :action, :sort, :page, :query_id)) %>
+<%= hidden_field_tag 'back_url', request.fullpath %>
 
 <div class="autoscroll">
     <table class="people index">
