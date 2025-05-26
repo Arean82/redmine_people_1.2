@@ -4,7 +4,7 @@ requires_redmine_crm version_or_higher: '0.0.19' rescue raise("\n\033[31mRedmine
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
 
 require 'redmine_people'
-require 'redmine/acts/attachable_global'
+require 'redmine/acts/attachable_global'  # added this line to load your module
 
 PEOPLE_VERSION_NUMBER = '1.2.0'
 PEOPLE_VERSION_TYPE = "Light version"
