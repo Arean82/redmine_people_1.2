@@ -1,0 +1,25 @@
+# encoding: utf-8
+
+module RedminePeople
+  module Helper
+   module PeopleHelper
+      def person_age(age)
+        RedminePeople.hide_age? ? '' : age.to_s
+      end
+
+      def department_tree_tag(person, options = {})
+        return '' if person.department.blank?
+        format_department(person.department, options)
+      end
+
+      def format_department(department, options = {})
+        department.self_and_ancestors.map do |department|
+          link_to department.name, department_path(department.id, options)
+        end.join(' &#187; ').html_safe
+      end
+    end
+
+  end
+end
+
+ActionView::Base.send :include, RedminePeople::Helper::PeopleHelper

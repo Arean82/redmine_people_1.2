@@ -1,4 +1,4 @@
-class PopulatePeopleInformation < ActiveRecord::Migration[4.2]
+class PopulatePeopleInformation < ActiveRecord::Migration[4.2]  
   def self.up
     sql = "INSERT INTO #{PeopleInformation.table_name} (user_id, phone, address, skype, " +
           " birthday, job_title, company, middlename, gender, twitter, facebook, linkedin, background, appearance_date, department_id)" +

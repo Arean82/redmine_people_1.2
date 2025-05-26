@@ -1,5 +1,6 @@
 
-class RemoveUsersColumns < ActiveRecord::Migration[4.2]
+# class RemoveUsersColumns < ActiveRecord::Migration
+class RemoveUsersColumns < ActiveRecord::Migration[4.2]    
   def self.up
     remove_column :users, :phone
     remove_column :users, :address

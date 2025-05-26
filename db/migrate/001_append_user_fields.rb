@@ -1,7 +1,5 @@
 
-
-# class AppendUserFields < ActiveRecord::Migration
-class AppendUserFields < ActiveRecord::Migration[4.2]  
+class AppendUserFields < ActiveRecord::Migration[4.2]
   def self.up
     add_column :users, :phone, :string
     add_column :users, :address, :string

@@ -96,7 +96,7 @@ class DepartmentsController < ApplicationController
   def autocomplete_for_person
     @people = Person.active.where(:type => 'User').not_in_department(@department).like(params[:q]).limit(100)
     render :layout => false
-  end
+  end  
 
   def load_tab
 

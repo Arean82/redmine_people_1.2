@@ -23,7 +23,7 @@ module Redmine
         end
         e
       end
-      
+
       protected
 
       # Returns events of type event_type visible by user that occured between from and to
@@ -34,6 +34,8 @@ module Redmine
         raise "#{provider.name} can not provide #{event_type} events." if provider_options.nil?
 
         scope = (provider_options[:scope] || provider)
+  #added newly      
+        scope = scope.call if scope.is_a?(Proc)
 
         if from && to
           scope = scope.where("#{provider_options[:timestamp]} BETWEEN ? AND ?", from, to)
@@ -72,12 +74,13 @@ module Redmine
           ActiveSupport::Deprecation.warn "acts_as_activity_provider with implicit :permission option is deprecated. Add a visible scope to the #{provider.name} model or use explicit :permission option."
           scope = scope.where(Project.allowed_to_condition(user, "view_#{provider.name.underscore.pluralize}".to_sym, options))
         end
-
-        if ActiveRecord::VERSION::MAJOR >= 4
-          scope.to_a
-        else
-          scope.all(provider_options[:find_options].dup)
-        end
+#added newly
+        scope.to_a
+    #    if ActiveRecord::VERSION::MAJOR >= 4
+    #      scope.to_a
+    #    else
+    #      scope.all(provider_options[:find_options].dup)
+    #   end
       end
 
       private

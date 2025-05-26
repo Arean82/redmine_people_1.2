@@ -6,7 +6,7 @@ module RedminePeople
         base.send(:include, InstanceMethods)
 
         base.class_eval do
-          before_action :authorize_people, :only => :show
+          before_filter :authorize_people, :only => :show
         end
       end
 

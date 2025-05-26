@@ -53,5 +53,5 @@ class PeopleMailsController < ApplicationController
   def preview_email
     @text = mail_macro(Contact.visible.where(:id  => params[:ids][0]).first, params[:"message-content"])
     render :partial => 'common/preview'
-  end
+  end  
 end

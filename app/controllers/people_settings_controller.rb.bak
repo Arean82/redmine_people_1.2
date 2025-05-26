@@ -5,7 +5,7 @@ class PeopleSettingsController < ApplicationController
 
   layout 'admin'
   before_action :require_admin
-  before_action :find_acl, :find_principals, :only => [:index]
+  before_action :find_acl, :find_principals, only: [:index]
 
   helper :departments
   helper :people

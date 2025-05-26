@@ -98,7 +98,7 @@ function showNotification(url){
       url: url,
       type: 'post',
       data:{
-        people_notification:{
+        people_notification:{ 
           description: $("#notification_description").val(),
           kind: $("#notification_kind").val()
         }

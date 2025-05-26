@@ -7,7 +7,7 @@ module RedminePeople
         base.send(:include, InstanceMethods)
 
         base.class_eval do
-          before_action :authorize_people, :only => [:destroy]
+          before_filter :authorize_people, :only => [:destroy]
         end
       end
 
@@ -15,6 +15,7 @@ module RedminePeople
         def authorize_people
           deny_access unless User.current.allowed_people_to?(:edit_people, User.current)
         end
+
       end
     end
   end

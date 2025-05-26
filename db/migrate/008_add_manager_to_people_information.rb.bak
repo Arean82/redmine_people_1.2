@@ -1,5 +1,5 @@
 
-class AddManagerToPeopleInformation < ActiveRecord::Migration[4.2]
+class AddManagerToPeopleInformation < ActiveRecord::Migration[4.2]     
 
   def self.up
     add_column :people_information, :manager_id, :integer

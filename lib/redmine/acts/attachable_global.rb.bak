@@ -64,7 +64,7 @@ module Redmine
               end
             end
           end
-          { files: saved_attachments, unsaved: unsaved_attachments}
+          { files: saved_attachments, unsaved: unsaved_attachments }
         end
 
         def attach_saved_attachments
