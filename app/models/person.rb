@@ -1,22 +1,3 @@
-# This file is a part of Redmine CRM (redmine_contacts) plugin,
-# customer relationship management plugin for Redmine
-#
-# Copyright (C) 2011-2016 Kirill Bezrukov
-# http://www.redminecrm.com/
-#
-# redmine_people is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# redmine_people is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with redmine_people.  If not, see <http://www.gnu.org/licenses/>.
-
 class Person < User
   unloadable
   include Redmine::SafeAttributes
@@ -146,8 +127,6 @@ class Person < User
 
   def editable_by?(usr, prj=nil)
     true
-    # usr && (usr.allowed_to?(:edit_people, prj) || (self.author == usr && usr.allowed_to?(:edit_own_invoices, prj)))
-    # usr && usr.logged? && (usr.allowed_to?(:edit_notes, project) || (self.author == usr && usr.allowed_to?(:edit_own_notes, project)))
   end
 
   def visible?(user=User.current)
@@ -174,4 +153,6 @@ class Person < User
     subordinate.save
   end
 
+  # ➕ Fix: Define avatar association to prevent crash if plugin expects it
+  has_one :avatar, -> { where(container_type: 'User') }, class_name: 'Attachment', foreign_key: 'container_id'
 end
