@@ -1,5 +1,4 @@
-<%= form_tag({}) do %>
-<!--<%= hidden_field_tag 'back_url', url_for(params) %> -->
+<%= form_tag request.fullpath do %>
 <%= hidden_field_tag 'back_url', request.fullpath %>
 
 <div class="autoscroll">
