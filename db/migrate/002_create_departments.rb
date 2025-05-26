@@ -1,6 +1,6 @@
 
 # class CreateDepartments < ActiveRecord::Migration
-class AppendUserFields < ActiveRecord::Migration[4.2]
+class CreateDepartments < ActiveRecord::Migration[4.2]
 
   def change
     create_table :departments do |t|
