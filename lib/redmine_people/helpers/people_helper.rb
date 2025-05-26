@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 module RedminePeople
-  module Helper
+  module Helpers
     module PeopleHelper
 
       def department_tree_tag(person, options={})
@@ -14,4 +14,4 @@ module RedminePeople
   end
 end
 
-ActionView::Base.send :include, RedminePeople::Helper::PeopleHelper
+ActionView::Base.send :include, RedminePeople::Helpers::PeopleHelper
