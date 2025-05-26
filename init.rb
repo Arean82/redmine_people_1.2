@@ -35,7 +35,9 @@ Redmine::Plugin.register :redmine_people do
   url 'http://redminecrm.com/projects/people'
   author_url 'mailto:support@redminecrm.com'
 
-  requires_redmine :version_or_higher => '2.3'
+  # requires_redmine :version_or_higher => '2.3'
+  requires_redmine version_or_higher: '5.0.0'
+
 
   settings :default => {
     :users_acl => {},
