@@ -211,9 +211,10 @@ ul.department-tree li {list-style-type:none; margin: 0px 2px 0px 0px; padding: 0
 /**************************************************************/
 /*                   ICONS
 /**************************************************************/
-#admin-menu a.people {  
-  background-image: url(../images/user_suit.png);
+#admin-menu a.people {
+  background-image: url(../images/user_suit.png); 
   background-repeat: no-repeat;
+  padding-left: 20px;
 }
 
 .icon-email {background-image: url(../images/email.png);}
