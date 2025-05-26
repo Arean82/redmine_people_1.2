@@ -1,7 +1,8 @@
 
-module Redmine
-  module Acts
-    module AttachableGlobal
+module ActsAsAttachableGlobal
+#module Redmine
+ # module Acts
+  #  module AttachableGlobal
       def self.included(base)
         base.extend ClassMethods
       end
@@ -80,7 +81,7 @@ module Redmine
         end
         module ClassMethods
         end
-      end
-    end
-  end
+   #   end
+  #  end
+ # end
 end
