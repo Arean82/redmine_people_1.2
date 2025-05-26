@@ -23,7 +23,6 @@ class Department < ActiveRecord::Base
   validates_presence_of :name 
   validates_uniqueness_of :name 
 
-  attr_accessible :name, :background, :parent_id, :head_id
   safe_attributes 'name',
     'background',
     'parent_id',
