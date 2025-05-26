@@ -18,7 +18,9 @@
 # along with redmine_people.  If not, see <http://www.gnu.org/licenses/>.
 
 require 'people_acl'
-require 'redmine_activity_crm_fetcher'
+# require 'redmine_activity_crm_fetcher'
+require 'redmine/activity/crm_fetcher'
+
 
 Rails.configuration.to_prepare do
   require_dependency 'redmine_people/helpers/redmine_people'
