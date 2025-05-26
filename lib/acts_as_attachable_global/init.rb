@@ -1,6 +1,5 @@
-require File.dirname(__FILE__) + '/lib/acts_as_attachable_global'
+require_relative '../../redmine/acts/attachable_global'
 
- 
-unless ActiveRecord::Base.included_modules.include?( Redmine::Acts::AttachableGlobal)
-  ActiveRecord::Base.send(:include,  Redmine::Acts::AttachableGlobal)  
+unless ActiveRecord::Base.included_modules.include?(Redmine::Acts::AttachableGlobal)
+  ActiveRecord::Base.send(:include, Redmine::Acts::AttachableGlobal)
 end
