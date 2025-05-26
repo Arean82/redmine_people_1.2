@@ -17,7 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with redmine_people.  If not, see <http://www.gnu.org/licenses/>.
 
-class AppendUserFields < ActiveRecord::Migration
+# class AppendUserFields < ActiveRecord::Migration
+class AppendUserFields < ActiveRecord::Migration[4.2]  
   def self.up
     add_column :users, :phone, :string
     add_column :users, :address, :string
