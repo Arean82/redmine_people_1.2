@@ -1,4 +1,3 @@
-
 module Redmine
   module Acts
     module AttachableGlobal
