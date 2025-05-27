@@ -1,4 +1,5 @@
 
+
 require 'people_acl'
 # require 'redmine_activity_crm_fetcher'
 require 'redmine/activity/crm_fetcher'
