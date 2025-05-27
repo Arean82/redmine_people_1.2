@@ -7,7 +7,8 @@ class Department < ActiveRecord::Base
   has_many :people_information, :class_name => "PeopleInformation", :dependent => :nullify
 
   if ActiveRecord::VERSION::MAJOR >= 4
-    has_many :people, lambda { uniq }, :class_name => 'Person', :through => :people_information
+ #   has_many :people, lambda { uniq }, :class_name => 'Person', :through => :people_information
+    has_many :people, -> { distinct }, :class_name => 'Person', :through => :people_information
   else
     has_many :people, :class_name => 'Person', :through => :people_information, :uniq => true
   end
