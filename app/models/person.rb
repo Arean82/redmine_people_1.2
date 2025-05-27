@@ -26,10 +26,14 @@ class Person < User
     department_id = department.is_a?(Department) ? department.id : department.to_i
     eager_load(:information).where("(#{PeopleInformation.table_name}.department_id = ?) AND (#{Person.table_name}.type = 'User')", department_id)
   }
+
   scope :not_in_department, lambda {|department|
     department_id = department.is_a?(Department) ? department.id : department.to_i
     eager_load(:information).where("(#{PeopleInformation.table_name}.department_id != ?) OR (#{PeopleInformation.table_name}.department_id IS NULL)", department_id)
   }
+
+  # Added 'active' scope to filter active persons (status = 1)
+  scope :active, -> { where(status: 1) }
 
   scope :seach_by_name, lambda {|search| eager_load(ActiveRecord::VERSION::MAJOR >= 4 ? [:information, :email_address] : [:information]).where("(LOWER(#{Person.table_name}.firstname) LIKE :search OR
                                                                     LOWER(#{Person.table_name}.lastname) LIKE :search OR
