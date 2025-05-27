@@ -1,4 +1,3 @@
-
 class Person < User
   unloadable
   include Redmine::SafeAttributes

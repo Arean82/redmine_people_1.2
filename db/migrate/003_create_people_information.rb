@@ -1,3 +1,4 @@
+
 class CreatePeopleInformation < ActiveRecord::Migration[4.2]
   def self.up
     create_table :people_information , :id => false do |t|

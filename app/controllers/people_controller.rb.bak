@@ -202,7 +202,6 @@ class PeopleController < ApplicationController
   def load_tab
 
   end
-  
   def destroy_avatar
     @person.avatar.destroy if @person.avatar.present?
 

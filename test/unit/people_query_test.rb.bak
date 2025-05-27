@@ -28,7 +28,7 @@ class PeopleQueryTest < ActiveSupport::TestCase
   def setup
     # Remove accesses operations
     Setting.plugin_redmine_people = {}
-
+   
     @query = PeopleQuery.new(:name => '_')
     @admin = Person.find(1)
     @person_2 = Person.find(2)
