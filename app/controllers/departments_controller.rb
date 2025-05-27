@@ -21,6 +21,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    @department_tabs = department_tabs(@department)
   end
 
   def update

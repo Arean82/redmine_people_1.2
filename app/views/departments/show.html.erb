@@ -33,7 +33,9 @@
   <% end -%>
 </div>
 
-<%= render_department_tabs department_tabs%>
+<%#= render_department_tabs department_tabs%>
+<%= render_department_tabs @department_tabs %>
+
 
 <% content_for :sidebar do %>
   <div id="department_people">
