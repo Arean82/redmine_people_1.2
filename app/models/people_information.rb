@@ -22,10 +22,13 @@ class PeopleInformation < ActiveRecord::Base
       attributes.delete('is_system')
     end
 
-    empty = PeopleInformation.accessible_attributes.to_a.map { |name| attributes[name].blank? }.all?
-    attributes.merge!({:_destroy => 1}) if exists and empty
+    safe_attrs = self.new.safe_attribute_names
+    empty = safe_attrs.map { |name| attributes[name].blank? }.all?
+    attributes.merge!({:_destroy => 1}) if exists && empty
+
     false
   end
+
 
   def self.modified_system_fields?(person)
     return false unless User.current.logged?
