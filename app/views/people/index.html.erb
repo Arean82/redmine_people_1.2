@@ -52,7 +52,9 @@
 
 <% html_title l(:label_people) %>
 
-<%= context_menu url_for( {:controller => "people", :action => "context_menu"} )%>
+<%#= context_menu url_for( {:controller => "people", :action => "context_menu"} )%>
+<%= context_menu %>
+
 
 <% content_for :sidebar do %>
 
